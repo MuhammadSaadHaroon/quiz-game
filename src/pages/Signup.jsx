@@ -94,9 +94,9 @@ export default function Signup() {
   };
 
   // default avatars (dark-themed)
- const defaultMale = `${process.env.PUBLIC_URL}/default_male.svg`;
-const defaultFemale = `${process.env.PUBLIC_URL}/default_female.svg`;
-const defaultOther = `${process.env.PUBLIC_URL}/default_other.svg`;
+  const defaultMale = '/default_male.svg';
+  const defaultFemale = '/default_female.svg';
+  const defaultOther = '/default_other.svg'; // fallback
 
   const avatarSrc = imageSrc || (gender === 'male' ? defaultMale : gender === 'female' ? defaultFemale : defaultOther);
 
