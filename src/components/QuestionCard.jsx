@@ -1,32 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, Typography, Grid, Button, Box } from '@mui/material';
 
-/*
- QuestionCard.jsx
- - Shows question text
- - Shows options (4 for easy/normal, 6 for hard)
- - Disables after user clicks (controlled via disabled prop during transit)
- - Calls onAnswer(question.id, selectedIndex)
-*/
+// ✅ PRELOAD SOUNDS
+const correctSound = new Audio('/sounds/correct.mp3');
+const wrongSound = new Audio('/sounds/wrong.mp3');
 
 export default function QuestionCard({ question, onAnswer, disabled = false }) {
   const [chosen, setChosen] = useState(null);
+  const [animateClass, setAnimateClass] = useState('');
 
-  // Reset chosen when question changes
-  React.useEffect(() => {
+  useEffect(() => {
     setChosen(null);
+    setAnimateClass('fade-in');
   }, [question?.id]);
-
-  if (!question) return null;
 
   const handleClick = (idx) => {
     if (disabled) return;
     setChosen(idx);
+
+    // ✅ Play feedback sound
+    if (idx === question.answerIndex) {
+      correctSound.currentTime = 0;
+      correctSound.play();
+      setAnimateClass('correct-anim');
+    } else {
+      wrongSound.currentTime = 0;
+      wrongSound.play();
+      setAnimateClass('wrong-anim');
+    }
+
     onAnswer(question.id, idx);
   };
 
+  // ✅ Keyboard navigation
+  const handleKeyPress = useCallback((e) => {
+    const key = parseInt(e.key);
+    if (!isNaN(key) && key >= 1 && key <= question.options.length) {
+      handleClick(key - 1);
+    }
+  }, [question]);
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [handleKeyPress]);
+
+  if (!question) return <Typography>Loading...</Typography>;
+
   return (
-    <Card sx={{ background: 'linear-gradient(180deg,#0b0d16, #0f1323)', color: '#e6eef8' }}>
+    <Card className={`quiz-card-anim ${animateClass}`} sx={{ background: 'linear-gradient(180deg,#0b0d16, #0f1323)', color: '#e6eef8', transition: '0.3s' }}>
       <CardContent>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
           <Typography variant="subtitle2" sx={{ opacity: 0.8 }}>{question.section}</Typography>
@@ -43,6 +65,7 @@ export default function QuestionCard({ question, onAnswer, disabled = false }) {
                 variant={chosen === idx ? 'contained' : 'outlined'}
                 onClick={() => handleClick(idx)}
                 disabled={disabled}
+                className={chosen === idx ? (idx === question.answerIndex ? 'btn-correct' : 'btn-wrong') : ''}
                 sx={{
                   textTransform: 'none',
                   justifyContent: 'flex-start',
