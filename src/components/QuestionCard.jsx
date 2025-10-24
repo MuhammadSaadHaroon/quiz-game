@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, Typography, Grid, Button, Box } from '@mui/material';
 
 // ✅ PRELOAD SOUNDS
-const correctSound = new Audio('/sounds/correct.mp3');
-const wrongSound = new Audio('/sounds/wrong.mp3');
+const correctSound = new Audio(`${process.env.PUBLIC_URL}/sounds/correct.mp3`);
+const wrongSound = new Audio(`${process.env.PUBLIC_URL}/sounds/wrong.mp3`);
 
 export default function QuestionCard({ question, onAnswer, disabled = false }) {
   const [chosen, setChosen] = useState(null);
