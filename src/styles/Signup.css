@@ -1,0 +1,89 @@
+/* Signup.css - dark gaming style with neon accents */
+
+.signup-wrap {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+}
+
+/* Paper card */
+.signup-paper {
+  width: 100%;
+  background: linear-gradient(180deg, #0b0e1a 0%, #0f1323 100%);
+  color: #e6eef8;
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(8, 10, 20, 0.7);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Neon title */
+.title-neon {
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #ff4dd2; /* neon pink */
+  text-shadow: 0 2px 12px rgba(255, 77, 210, 0.15);
+}
+
+/* top row: avatar + upload buttons */
+.top-row {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+/* upload column */
+.upload-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* buttons */
+.btn-neon {
+  background: linear-gradient(90deg, #ff4dd2 0%, #7a5cff 100%);
+  color: white;
+  box-shadow: 0 6px 18px rgba(122, 92, 255, 0.18);
+  text-transform: none;
+}
+
+.btn-outline {
+  color: #e6eef8;
+  border-color: rgba(230,238,248,0.12);
+  text-transform: none;
+}
+
+/* form column */
+.form-col {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* input fields: filled style dark */
+.input-field .MuiFilledInput-root {
+  background: rgba(255,255,255,0.02);
+}
+
+/* action row */
+.action-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+/* small helper */
+.helper {
+  color: #a9b8d6;
+  font-size: 12px;
+}
+
+/* mobile responsiveness */
+@media (max-width: 600px) {
+  .top-row { flex-direction: column; align-items: center; }
+  .upload-col { align-items: center; }
+  .action-row { flex-direction: column-reverse; }
+}

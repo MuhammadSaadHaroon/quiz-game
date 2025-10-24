@@ -1,0 +1,27 @@
+/* Result.css */
+
+.result-wrap {
+  margin-top: 28px;
+  padding-bottom: 40px;
+  padding-top: 50px;
+}
+
+.result-paper {
+  background: linear-gradient(180deg,#0b0e1a,#0f1323);
+  padding: 18px;
+  border-radius: 12px;
+  color: #e6eef8;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.result-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.result-actions {
+  display:flex;
+  gap:12px;
+}

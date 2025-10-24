@@ -1,0 +1,35 @@
+/* Quiz.css - dark theme */
+
+.quiz-wrap {
+  margin-top: 28px;
+  padding-bottom: 40px;
+  padding-top: 50px;
+}
+
+.quiz-card {
+  background: linear-gradient(180deg, #0b0e1a, #0f1323);
+  padding: 18px;
+  border-radius: 12px;
+  color: #e6eef8;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.quiz-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  color: #a9b8d6;
+}
+
+.neon-small {
+  color: #ff4dd2;
+  text-shadow: 0 4px 12px rgba(122,92,255,0.08);
+}
+
+.quiz-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+}

@@ -1,0 +1,36 @@
+/* global.css - Dark Glassmorphic Neon Theme */
+
+body {
+  font-family: Inter, Roboto, sans-serif;
+  margin: 0;
+  color: #2381f5;
+  background: radial-gradient(circle at top, #0b0e1a, #090b14 50%, #06070d);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Scrollbar styling for gaming feel */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #0b0e1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* Utility glass container class */
+.glass-card {
+  background: rgba(15, 18, 34, 0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+}
